@@ -143,6 +143,10 @@ li:hover {
     padding: 20px;
 }
 
+.auth-container h2 {
+    margin-bottom: 15px;
+}
+
 .auth-box {
     background-color: white;
     padding: 30px;
