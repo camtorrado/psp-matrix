@@ -21,16 +21,29 @@ h1 {
     color: #333;
 }
 
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
 .add-task {
     display: flex;
     gap: 10px;
     margin-bottom: 30px;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
-input[type="text"] {
+input[type="text"], 
+input[type="email"],
+input[type="password"] {
     padding: 10px;
-    width: 300px;
+    width: 100%;
+    max-width: 300px;
     border: 1px solid #ddd;
     border-radius: 4px;
 }
@@ -39,6 +52,8 @@ select {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
+    width: 100%;
+    max-width: 300px;
 }
 
 button {
@@ -48,6 +63,7 @@ button {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    white-space: nowrap;
 }
 
 button:hover {
@@ -84,7 +100,8 @@ li {
     align-items: center;
     padding: 10px;
     border-bottom: 1px solid #eee;
-    margin-bottom: 5px;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 li:hover {
@@ -93,11 +110,7 @@ li:hover {
 
 .delete-btn {
     background-color: #ff4444;
-    color: white;
-    border: none;
     padding: 5px 10px;
-    border-radius: 3px;
-    cursor: pointer;
 }
 
 .delete-btn:hover {
@@ -120,84 +133,14 @@ li:hover {
     border-top: 4px solid #33b5e5;
 }
 
-/* Estilos previos... (mantén todos los estilos anteriores y agrega estos:) */
-
-.login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #f0f0f0;
-}
-
-.login-box {
-    background-color: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    width: 100%;
-    max-width: 400px;
-}
-
-.login-box h2 {
-    text-align: center;
-    margin-bottom: 30px;
-    color: #333;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group input {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 16px;
-}
-
-.login-btn {
-    width: 100%;
-    padding: 12px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.login-btn:hover {
-    background-color: #45a049;
-}
-
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
-}
-
-.logout-btn {
-    background-color: #ff4444;
-    color: white;
-    padding: 8px 16px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.logout-btn:hover {
-    background-color: #cc0000;
-}
-
+/* Estilos para el login/registro */
 .auth-container {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     background-color: #f0f0f0;
+    padding: 20px;
 }
 
 .auth-box {
@@ -207,6 +150,10 @@ li:hover {
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     width: 100%;
     max-width: 400px;
+}
+
+.form-group {
+    margin-bottom: 15px;
 }
 
 .auth-switch {
@@ -221,4 +168,102 @@ li:hover {
 
 .auth-switch a:hover {
     text-decoration: underline;
+}
+
+/* Media Queries para responsividad */
+@media screen and (max-width: 768px) {
+    .matrix {
+        grid-template-columns: 1fr; /* Cambia a una columna en móviles */
+    }
+
+    .add-task {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .add-task input,
+    .add-task select,
+    .add-task button {
+        width: 100%;
+        max-width: none;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .quadrant h2 {
+        font-size: 16px;
+    }
+
+    .header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .logout-btn {
+        width: 100%;
+    }
+}
+
+/* Ajustes adicionales para pantallas muy pequeñas */
+@media screen and (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .quadrant {
+        padding: 15px;
+    }
+
+    li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .delete-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Ajustes para mantener la legibilidad en pantallas grandes */
+@media screen and (min-width: 1440px) {
+    .container {
+        max-width: 1400px;
+    }
+
+    .quadrant {
+        min-height: 300px;
+    }
+}
+
+/* Modo oscuro (opcional) */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #1a1a1a;
+        color: #fff;
+    }
+
+    .quadrant, .auth-box {
+        background-color: #2d2d2d;
+        color: #fff;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    select {
+        background-color: #3d3d3d;
+        color: #fff;
+        border-color: #4d4d4d;
+    }
+
+    h1, .quadrant h2 {
+        color: #fff;
+    }
+
+    li:hover {
+        background-color: #3d3d3d;
+    }
 }
