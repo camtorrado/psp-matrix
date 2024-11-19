@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matriz de Eisenhower - Todo List</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    
+    <!-- Login Container -->
+    <div class="auth-container" id="authContainer">
+        <!-- Login Form -->
+        <div class="auth-box" id="loginBox">
+            <h2>Iniciar Sesión</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <input type="email" id="loginEmail" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="loginPassword" placeholder="Contraseña" required>
+                </div>
+                <button type="submit" class="auth-btn">Ingresar</button>
+            </form>
+            <p class="auth-switch">¿No tienes cuenta? <a href="#" id="showRegister">Regístrate</a></p>
+        </div>
+
+        <!-- Register Form -->
+        <div class="auth-box" id="registerBox" style="display: none;">
+            <h2>Registro</h2>
+            <form id="registerForm">
+                <div class="form-group">
+                    <input type="email" id="registerEmail" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="registerPassword" placeholder="Contraseña" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="confirmPassword" placeholder="Confirmar Contraseña" required>
+                </div>
+                <button type="submit" class="auth-btn">Registrarse</button>
+            </form>
+            <p class="auth-switch">¿Ya tienes cuenta? <a href="#" id="showLogin">Inicia Sesión</a></p>
+        </div>
+    </div>
+
+    <!-- Main App Container (Initially Hidden) -->
+    <div class="container" id="mainContainer" style="display: none;">
+        <div class="header">
+            <h1>Matriz de Eisenhower</h1>
+            <button id="logoutBtn" class="logout-btn">Cerrar Sesión</button>
+        </div>
+        
+        <div class="add-task">
+            <input type="text" id="taskInput" placeholder="Nueva tarea...">
+            <select id="quadrantSelect">
+                <option value="urgent-important">Urgente e Importante</option>
+                <option value="not-urgent-important">No Urgente pero Importante</option>
+                <option value="urgent-not-important">Urgente pero No Importante</option>
+                <option value="not-urgent-not-important">No Urgente y No Importante</option>
+            </select>
+            <button id="addTaskBtn">Agregar Tarea</button>
+        </div>
+
+        <div class="matrix">
+            <div class="quadrant" id="urgent-important">
+                <h2>Urgente e Importante</h2>
+                <ul></ul>
+            </div>
+            <div class="quadrant" id="not-urgent-important">
+                <h2>No Urgente pero Importante</h2>
+                <ul></ul>
+            </div>
+            <div class="quadrant" id="urgent-not-important">
+                <h2>Urgente pero No Importante</h2>
+                <ul></ul>
+            </div>
+            <div class="quadrant" id="not-urgent-not-important">
+                <h2>No Urgente y No Importante</h2>
+                <ul></ul>
+            </div>
+        </div>
+    </div>
+    <script src="./index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</body>
+</html>
