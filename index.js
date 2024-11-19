@@ -4,7 +4,6 @@ const supabaseClient = supabase.createClient(
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlrbWxzenNkd2RiamVkdmdpcW95Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzE5NDQ3NjcsImV4cCI6MjA0NzUyMDc2N30.zMFRUqomzrkd6DwdtDUmlh6Ygn_8rA63o2i2U8n5yVM'
 );
 
-
 document.addEventListener('DOMContentLoaded', () => {
     // Handlers para cambiar entre login y registro
     document.getElementById('showRegister').addEventListener('click', (e) => {
